@@ -9,9 +9,9 @@ pipelines:
       steps:
       - sh: rustup override set nightly
         name: rustup
-      - sh: cargo install --path .
-        name: cargo-install
-      - sh: cp ~/.cargo/bin/REPLACE_ME_APP_NAME .
+      - sh: cargo build --release
+        name: cargo-build
+      - sh: cp target/release/REPLACE_ME_APP_NAME .
         name: copy-bin
   release:
     setVersion:
@@ -26,7 +26,7 @@ pipelines:
       steps:
       - sh: rustup override set nightly
         name: rustup
-      - sh: cargo install --path .
-        name: cargo-install
-      - sh: cp ~/.cargo/bin/REPLACE_ME_APP_NAME .
+      - sh: cargo build --release
+        name: cargo-build
+      - sh: cp target/release/REPLACE_ME_APP_NAME .
         name: copy-bin
