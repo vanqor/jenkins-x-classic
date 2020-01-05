@@ -9,7 +9,7 @@ pipelines:
       steps:
       - sh: rustup override set nightly
         name: rustup
-      - sh: cargo install --path . --root ./apps --force
+      - sh: cargo install --path . --root ./apps --force -j 4
         name: cargo-install
   release:
     setVersion:
@@ -24,5 +24,5 @@ pipelines:
       steps:
       - sh: rustup override set nightly
         name: rustup
-      - sh: cargo install --path . --root ./apps --force
+      - sh: cargo install --path . --root ./apps --force -j 4
         name: cargo-install
